@@ -24,7 +24,11 @@ SHOCK_PROBABILITY = 0.20     # per-cycle probability of an injected shock
 # Default reward weights (Week 5 Specification, Section 3.2)
 W1_VALUE = 1.0
 W2_DEPENDENCY = 0.5
-W3_CAPACITY = 0.4
+W3_CAPACITY = 1.0  # CORRECTED (was 0.4) -- closes the reward-exploitation gap diagnosed
+                   # in Week 9: old weight allowed a positive net reward from overrunning
+                   # capacity with cheap, high-value items. New weight matches W1_VALUE,
+                   # so the marginal capacity-overrun penalty per point can never be
+                   # smaller than the maximum possible per-unit value gain.
 W4_URGENCY = 0.3
 URGENCY_THRESHOLD = 0.7
 

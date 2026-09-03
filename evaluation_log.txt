@@ -1,0 +1,24 @@
+Matplotlib is building the font cache; this may take a moment.
+==============================================================================
+FINAL EVALUATION -- held-out test seeds, corrected reward, multi-seed PPO
+Test seeds (held out, never used in training): [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+PPO training seeds: [0, 1, 2]
+==============================================================================
+
+Policy      Mean CumReward      Std  MeanOverrun  MeanDepViol  %FeasibleCyc
+random             -373.81    36.76       407.20        54.20           2.5
+rice                 17.18     4.58         1.80        30.00          96.7
+wsjf                 16.07     4.79         2.10        32.40          95.8
+ppo                 -91.87    16.45       103.43        21.10          62.8
+
+--- Paired statistics (matched on held-out test seeds) ---
+PPO vs RICE: paired t=-18.955, p=0.0000 (significant), Cohen's d=-5.994, 95% CI of mean diff=[-122.07, -96.04]
+PPO vs WSJF: paired t=-20.130, p=0.0000 (significant), Cohen's d=-6.366, 95% CI of mean diff=[-120.07, -95.81]
+
+--- Adaptation after shock (mean reward, 2 cycles post-shock) ---
+random    : n=10, mean post-shock reward=-21.78
+rice      : n=13, mean post-shock reward=1.00
+wsjf      : n=12, mean post-shock reward=1.59
+ppo       : n=34, mean post-shock reward=-8.06
+
+Saved final_results.npz for figure regeneration.
